@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+openai==1.65.1
+gTTS==2.3.2
+python-dotenv
+edge-tts>=1.9.0
+pydub==0.25.1

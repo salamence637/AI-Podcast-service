@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  podcast-api:
+    container_name: podcast-api
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile.dev
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./api:/app
+    expose:
+      - 8000
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: ../docker/client/Dockerfile.dev
+    volumes:
+      - ./client:/app/client
+      - node_modules:/app/client/node_modules
+    tty: true
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    
+
+volumes:
+  node_modules:
