@@ -6,13 +6,12 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from app.services import podcast_generator, tts
 import openai
-from typing import Optional
 router = APIRouter()
 
 class PodcastRequest(BaseModel):
     topic: str
     tts: bool = False  # 是否生成语音
-    user_api_key: Optional[str] = None
+    
 
 
 class APIKeyRequest(BaseModel):
