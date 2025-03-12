@@ -2,9 +2,10 @@ from fastapi import FastAPI
 from app.api import routes
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-
+import os
+APP_ENV=os.getenv("APP_ENV")
 app = FastAPI(
-    title="DX Chat API",
+    title="AI Podcast API",
     version="v0.0.1-alpha.1",
     # openapi_url="/v1/openapi.json",
     docs_url="/docs",
