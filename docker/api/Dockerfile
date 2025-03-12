@@ -11,4 +11,6 @@ RUN apt-get update && apt-get install -y ffmpeg
 # 复制项目代码
 COPY ./api .
 
-ENTRYPOINT [ "./scripts/start.dev.sh" ]
+
+ENTRYPOINT [ "./scripts/start.sh" ]
+
