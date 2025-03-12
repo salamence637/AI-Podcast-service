@@ -7,7 +7,8 @@ from pydantic import BaseModel
 from app.services import podcast_generator, tts
 import openai
 router = APIRouter()
-
+import os 
+NEXT_PUBLIC_BASE_URL = os.getenv("NEXT_PUBLIC_BASE_URL")
 class PodcastRequest(BaseModel):
     topic: str
     tts: bool = False  # 是否生成语音
@@ -78,7 +79,9 @@ async def generate_podcast_endpoint(request: Request, podcast_request: PodcastRe
             f.write(audio_fp.read())
         
         # 生成访问音频文件的 URL
-        audio_url = str(request.url_for("audio", path=file_name))
+        # audio_url = str(request.url_for("audio", path=file_name))
+        # NEXT_PUBLIC_BASE_URL
+        audio_url = f"{NEXT_PUBLIC_BASE_URL}/audio/{file_name}"
         result["audio_file"] = audio_url
         result["timestamps"] = timestamps
     return JSONResponse(content=result)
