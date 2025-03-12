@@ -4,14 +4,14 @@ services:
     build:
       context: .
       dockerfile: docker/api/Dockerfile.dev
-    ports:
-      - "8000:8000"
     env_file:
       - .env
     volumes:
       - ./api:/app
     expose:
       - 8000
+    networks:
+      - db-network
   nginx:
     container_name: nginx
     image: nginx:mainline-alpine
