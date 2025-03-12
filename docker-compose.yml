@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   podcast-api:
     container_name: podcast-api
