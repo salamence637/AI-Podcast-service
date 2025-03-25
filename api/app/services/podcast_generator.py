@@ -56,7 +56,7 @@ def generate_podcast_text(topic: str) -> str:
             "1. 各会話ステップで論理的な推論とChain-of-Thoughtプロセスを示す；\n"
             "2. 内容は明確な構造を持ちながらも、自由な発想や突拍子もない展開を含む；\n"
             "3. 出力言語は日本語（標準語）で、2025年の若者らしい口調を反映する；\n"
-            "4. 全体の対話は約5分間（約1500 tokens）を目指す。"
+            "4. 全体の対話は約1分間（約300 tokens）を目指す。"
         )
     else:
         system_message = (
@@ -71,7 +71,7 @@ def generate_podcast_text(topic: str) -> str:
             "1. Each dialogue step should show logical reasoning and a chain-of-thought process;\n"
             "2. The content should have a clear structure but allow for free, imaginative, and even off-topic ideas;\n"
             "3. Use American conversational style typical of young people in 2025;\n"
-            "4. The entire dialogue should last about 5 minutes (approximately 1500 tokens)."
+            "4. The entire dialogue should last about 1 minutes (approximately 300 tokens)."
         )
     messages = [
         {"role": "system", "content": system_message},
